@@ -1,0 +1,74 @@
+package lottoVariant;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+public class ColoredBtn  extends JButton implements ActionListener{
+	
+	
+	ColoredBtn(){
+		this.setText("");
+		this.setBackground(Color.LIGHT_GRAY);
+		this.setSize(140,100);
+		this.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String temp = this.getText();
+		
+		if (temp.equals("9")) {
+			this.setText("0");
+		}
+		else if(temp.equals("")) {
+			this.setText("1");
+		}
+		else {
+			
+			int value= 1+Integer.parseInt(this.getText());
+			this.setText(""+value);
+		}
+		
+		
+	}
+	void resetta(){
+		this.setText("");
+		this.setBackground(Color.LIGHT_GRAY);
+	}
+	
+	boolean verificaNullo(){			////se nullo da falso
+		if(this.getText().equals("")) {
+			return false;
+		}
+		else  {
+			return true;
+		}
+		
+		
+	}
+	public boolean verificaUguale(String a ){
+		String value = this.getText();
+		System.out.println("value vale"+ value);
+		if (value.equals(a)){
+			System.out.println(a+"true");
+			return true;
+			}
+		System.out.println(a+"false");
+			return false;
+	}
+	public void toGreenColor(){
+		this.setBackground(Color.green);
+	}
+	public void toRedColor(){
+		this.setBackground(Color.red);
+	}
+	
+
+	
+}
+
+
